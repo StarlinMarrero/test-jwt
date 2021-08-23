@@ -7,6 +7,9 @@ export const verifyToken = async (req:Request, res:Response, next:NextFunction) 
 
 try {
     const token = req.headers["authorization"];
+    const cokie = req.cookies["token_Auth"];
+    console.log(cokie);
+    
     
     if (!token) {
         
@@ -21,7 +24,6 @@ try {
         
         return res.status(401).json("usuario no encontrado")
     }
-
 
 
     next()

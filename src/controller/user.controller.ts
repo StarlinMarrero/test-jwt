@@ -36,9 +36,11 @@ class UserController {
 
 
            const token = jwt.sign({id: user.id, userName: user.userName}, "TEST", {
-                expiresIn: 36000
+                expiresIn: 3600000
             })
-
+            res.cookie("token_Auth", token, {
+                maxAge: 3600000
+            })
             res.json(token);
 
 
